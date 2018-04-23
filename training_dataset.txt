@@ -1,0 +1,2 @@
+/home/zhou/BTA/dataset/CLIC/train/
+/home/zhou/BTA/dataset/kodak/

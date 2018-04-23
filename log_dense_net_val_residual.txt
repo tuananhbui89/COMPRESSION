@@ -1,0 +1,2 @@
+20180423_1214: epoch 0 step 0.1% loss: 5.746423 entropy_loss: 4.728434 recon_loss 1.017989 mse: 1.017989 psnr: -0.077431 max_z: 127.0 min_z: -105.0
+20180423_1309: epoch 0 step 50.0% loss: 4.588617 entropy_loss: 4.513570 recon_loss 0.075047 mse: 0.075047 psnr: 11.246653 max_z: 127.0 min_z: -78.0

@@ -1,0 +1,15 @@
+20180423_1058: epoch 0 step 0.1% loss: 6.421878 entropy_loss: 4.696661 recon_loss 1.725217 mse: 1.725217 psnr: -2.368438 max_z: 121.0 min_z: -127.0
+20180423_1109: epoch 0 step 50.0% loss: 4.999620 entropy_loss: 4.645822 recon_loss 0.353799 mse: 0.353799 psnr: 4.512437 max_z: 125.0 min_z: -127.0
+20180423_1142: epoch 0 step 100.0% loss: 4.936342 entropy_loss: 4.731840 recon_loss 0.204502 mse: 0.204502 psnr: 6.893033 max_z: 127.0 min_z: -127.0
+20180423_1142: epoch 1 step 0.1% loss: 4.873491 entropy_loss: 4.705483 recon_loss 0.168008 mse: 0.168008 psnr: 7.746705 max_z: 127.0 min_z: -124.0
+20180423_1200: epoch 1 step 50.0% loss: 4.767043 entropy_loss: 4.663671 recon_loss 0.103371 mse: 0.103371 psnr: 9.856003 max_z: 127.0 min_z: -107.0
+20180423_1212: epoch 0 step 0.1% loss: 5.789001 entropy_loss: 4.682619 recon_loss 1.106382 mse: 1.106382 psnr: -0.439052 max_z: 127.0 min_z: -122.0
+20180423_1212: epoch 1 step 100.0% loss: 4.649214 entropy_loss: 4.620254 recon_loss 0.028960 mse: 0.028960 psnr: 15.382070 max_z: 127.0 min_z: -113.0
+20180423_1212: epoch 2 step 0.1% loss: 4.715757 entropy_loss: 4.687261 recon_loss 0.028496 mse: 0.028496 psnr: 15.452192 max_z: 123.0 min_z: -127.0
+20180423_1224: epoch 2 step 50.0% loss: 4.742544 entropy_loss: 4.727562 recon_loss 0.014981 mse: 0.014981 psnr: 18.244570 max_z: 126.0 min_z: -93.0
+20180423_1253: epoch 2 step 100.0% loss: 4.809490 entropy_loss: 4.800790 recon_loss 0.008700 mse: 0.008700 psnr: 20.604698 max_z: 127.0 min_z: -127.0
+20180423_1253: epoch 3 step 0.1% loss: 4.662016 entropy_loss: 4.656692 recon_loss 0.005325 mse: 0.005325 psnr: 22.736975 max_z: 127.0 min_z: -118.0
+20180423_1308: epoch 3 step 50.0% loss: 4.755609 entropy_loss: 4.745254 recon_loss 0.010355 mse: 0.010355 psnr: 19.848576 max_z: 113.0 min_z: -127.0
+20180423_1329: epoch 3 step 100.0% loss: 4.666283 entropy_loss: 4.662217 recon_loss 0.004066 mse: 0.004066 psnr: 23.908517 max_z: 114.0 min_z: -127.0
+20180423_1329: epoch 4 step 0.1% loss: 4.668211 entropy_loss: 4.664808 recon_loss 0.003402 mse: 0.003402 psnr: 24.682051 max_z: 127.0 min_z: -122.0
+20180423_1340: epoch 4 step 50.0% loss: 4.745135 entropy_loss: 4.743078 recon_loss 0.002058 mse: 0.002058 psnr: 26.866475 max_z: 127.0 min_z: -104.0
