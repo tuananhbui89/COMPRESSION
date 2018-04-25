@@ -3,70 +3,12 @@ import glob
 import os 
 import numpy as np 
 import scipy.misc
-from imlib import myread, mysave, RGB2YUV, YUV2RGB, imextract, residual_img, myresize
+from imlib import myread, mysave, RGB2YUV, YUV2RGB, imextract, residual_img, myresize, mirror_padding, crop_padding, get_nb_patch_in_image, get_padding_size
 
-from utils import list_dir
+from utils import list_dir, read_all_lines, list_from_list
 
-from deblocking import deblocking
+from deblocking import deblocking as deblock
 
-# Create a list from a folder of images: 
-def create_list(folder_dir, output_file):
-	all_dir = list_dir(folder_dir, '.png')
-	fid = open(output_file, 'w')
-	for one_dir in all_dir: 
-		fid.write('%s\n'%(one_dir))
-
-
-# Read a dataset list 
-def read_list(file_name):
-	if file_name == None:
-		return None
-	else:
-		with open(file_name) as f:
-		    data = f.readlines()
-		data = [line.strip() for line in data]
-		return data
-
-# Mirror padding 
-def mirror_padding(img, patch_size):
-	H = (np.shape(img))[0]
-	W = (np.shape(img))[1]
-	if H%patch_size != 0 or W%patch_size != 0:
-		top_pad, bot_pad, left_pad, right_pad = get_padding_size(img, patch_size)
-		if len(np.shape(img)) == 3:
-			new_img = np.pad(img, ((top_pad, bot_pad), (left_pad, right_pad), (0,0)), 'reflect')
-		elif len(np.shape(img)) == 2:
-			new_img = np.pad(img, ((top_pad, bot_pad), (left_pad, right_pad)), 'reflect')
-		return new_img
-	else:
-		return img 
-
-def crop_padding(img, newshape):
-	H = newshape[0]
-	W = newshape[1]
-
-	return img[:H, :W, :]
-	
-# Get Number Patch in Image
-def get_nb_patch_in_image(img, patch_size):
-	H = (np.shape(img))[0]
-	W = (np.shape(img))[1]
-	nb_patch_W = W//patch_size
-	nb_patch_H = H//patch_size
-	return nb_patch_W, nb_patch_H
-
-# Get Mirror Padding size 
-def get_padding_size(img, patch_size):
-	H = (np.shape(img))[0]
-	W = (np.shape(img))[1]
-	patch_size = np.float(patch_size)
-	nb_patch_H = np.ceil(H/patch_size)
-	nb_patch_W = np.ceil(W/patch_size)	 
-	top_pad = 0
-	bot_pad = int(nb_patch_H*patch_size - H)
-	left_pad = 0 
-	right_pad = int(nb_patch_W*patch_size - W)
-	return top_pad, bot_pad, left_pad, right_pad
 
 class ImgInfor(object):
 	def __init__(self, img, patch_size, batch_size):
@@ -119,7 +61,7 @@ def reconstruct_img_v2(patches, pH, pW, pC, iH, iW, patch_size, colorSpace, debl
 
 	crop_img = img[:iH, :iW, :]
 	if deblocking == True: 
-		crop_img = deblocking(crop_img, patch_size=patch_size, window=3)
+		crop_img = deblock(crop_img, patch_size=patch_size, window=3)
 	if colorSpace == 'YUV':
 		crop_img = YUV2RGB(crop_img)
 	return crop_img
@@ -130,10 +72,7 @@ class CompDataset(object):
 		# assign variables 
 		self.patch_size = patch_size
 		self.batch_size = batch_size
-		if list_file_dir is not None and isinstance(list_file_dir, str):
-			self.all_dir = read_list(list_file_dir)
-		elif list_file_dir is not None and isinstance(list_file_dir, list): 
-			self.all_dir = list_file_dir
+		self.all_dir = list_from_list(list_file_dir, ['.png','.jpg','.JPEG', '.NEF'])
 		self.colorSpace = colorSpace		
 
 		# self define variables
@@ -213,6 +152,18 @@ class CompDataset(object):
 					self.get_new_img(scale=scale)
 
 		return batch_patches
+
+	def do_permutation(self):
+		self.all_dir = np.random.permutation(self.all_dir)
+		self.all_dir = self.all_dir.tolist()
+		
+	def renew_dataset(self, datadir):
+		self.all_dir = list_from_list(datadir, ['.png','.jpg','.NEF'])
+		self.nb_images = len(self.all_dir)
+		self.do_permutation()
+		if self.curr_img_id >= self.nb_images:
+			# will fail when cur_idx in range[-batch_size:], currently ignore
+			self.curr_img_id = 0 
 
 # import matplotlib.pyplot as plt 
 

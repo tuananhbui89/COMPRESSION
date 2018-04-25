@@ -1,1 +1,2 @@
 /home/zhou/BTA/workspace/compress/20180412_0101/aec/sample/synthesize/0.25/train/
+/home/zhou/BTA/workspace/compress/20180412_0101/aec/sample/test_quant/0.25/

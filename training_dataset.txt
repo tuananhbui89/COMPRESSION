@@ -1,2 +1,13 @@
 /home/zhou/BTA/dataset/CLIC/train/
 /home/zhou/BTA/dataset/kodak/
+#/hdd/BTA/dataset/ImageNet/Val/val00/
+#/hdd/BTA/dataset/ImageNet/Val/val02/
+#/hdd/BTA/dataset/ImageNet/Val/val04/
+#/hdd/BTA/dataset/ImageNet/Val/val06/
+#/hdd/BTA/dataset/ImageNet/Val/val08/
+#/hdd/BTA/dataset/ImageNet/Val/val10/
+#/hdd/BTA/dataset/ImageNet/Val/val12/
+#/hdd/BTA/dataset/ImageNet/Val/val14/
+#/hdd/BTA/dataset/ImageNet/Val/val16/
+#/hdd/BTA/dataset/ImageNet/Val/val18/
+#/hdd/BTA/dataset/ImageNet/Val/val20/

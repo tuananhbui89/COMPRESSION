@@ -143,14 +143,14 @@ class densenet(object):
 		self.train_data = create_dataset(train_dir, img_size, colorspace)
 		self.val_data = create_dataset(val_dir, img_size, colorspace)
 
-		self.logfile = model_dir + '../log_dense_net.txt'
-		self.logval = model_dir + '../log_dense_net_val.txt'
+		self.logfile = model_dir + '/../log_dense_net.txt'
+		self.logval = model_dir + '/../log_dense_net_val.txt'
 		self.output_dir = output_dir
 
-	def build_model(self):
+	def build_model(self, dropout_p=0.2):
 		print('Build model %s' % (self.preset_model))
 		self.outputs, self.latents = build_fc_densenet(inputs=self.inputs, n_classes=3, preset_model=self.preset_model, n_filters_first_conv=48, 
-	n_pool=5, growth_rate=12, n_layers_per_block=4, dropout_p=0.2)
+	n_pool=5, growth_rate=12, n_layers_per_block=4, dropout_p=dropout_p)
 		
 		self.max_z = tf.reduce_max(self.latents)
 		self.min_z = tf.reduce_min(self.latents)

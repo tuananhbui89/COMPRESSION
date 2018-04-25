@@ -142,3 +142,44 @@ def YUV2RGB( yuv, base = 1, skipassert=False):
     # rgb = convert_colorspace(yuv, 'YUV', 'RGB')
 
     return rgb
+
+# Mirror padding 
+def mirror_padding(img, patch_size):
+    H = (np.shape(img))[0]
+    W = (np.shape(img))[1]
+    if H%patch_size != 0 or W%patch_size != 0:
+        top_pad, bot_pad, left_pad, right_pad = get_padding_size(img, patch_size)
+        if len(np.shape(img)) == 3:
+            new_img = np.pad(img, ((top_pad, bot_pad), (left_pad, right_pad), (0,0)), 'reflect')
+        elif len(np.shape(img)) == 2:
+            new_img = np.pad(img, ((top_pad, bot_pad), (left_pad, right_pad)), 'reflect')
+        return new_img
+    else:
+        return img 
+
+def crop_padding(img, newshape):
+    H = newshape[0]
+    W = newshape[1]
+
+    return img[:H, :W, :]
+    
+# Get Number Patch in Image
+def get_nb_patch_in_image(img, patch_size):
+    H = (np.shape(img))[0]
+    W = (np.shape(img))[1]
+    nb_patch_W = W//patch_size
+    nb_patch_H = H//patch_size
+    return nb_patch_W, nb_patch_H
+
+# Get Mirror Padding size 
+def get_padding_size(img, patch_size):
+    H = (np.shape(img))[0]
+    W = (np.shape(img))[1]
+    patch_size = np.float(patch_size)
+    nb_patch_H = np.ceil(H/patch_size)
+    nb_patch_W = np.ceil(W/patch_size)   
+    top_pad = 0
+    bot_pad = int(nb_patch_H*patch_size - H)
+    left_pad = 0 
+    right_pad = int(nb_patch_W*patch_size - W)
+    return top_pad, bot_pad, left_pad, right_pad

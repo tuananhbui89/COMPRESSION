@@ -25,9 +25,9 @@ parser = argparse.ArgumentParser(description='Setup param for main_densenet')
 parser.add_argument('--task', metavar='N', choices=['train', 'test'],
 	help='set task [train, test]', default='train')
 parser.add_argument('--operation', metavar='N', type=str, choices=['prediction', 'residual'],
-	help='set operation task [prediction, residual]', default='residual')
+	help='set operation task [prediction, residual]', default='prediction')
 parser.add_argument('--lr', metavar='N', type=float, help='set learning rate', default=0.0001)
-parser.add_argument('--batch_size', metavar='N', type=int, help='set batch_size', default=1)
+parser.add_argument('--batch_size', metavar='N', type=int, help='set batch_size', default=16)
 parser.add_argument('--colorspace', metavar='N', type=str, choices=['RGB', 'YUV'], 
 	help='set color space [RGB, YUV]', default='RGB')
 parser.add_argument('--nb_epoch', metavar='N', type=int, help='set number epoch', default=150)
@@ -49,10 +49,10 @@ if operation == 'residual':
 	img_size = [256, 256*3, 3]
 
 elif operation == 'prediction':
-	from densenet import densenet
+	from densenet_prediction import densenet
 	train_dir = 'training_dataset.txt'
 	val_dir = 'validated_dataset.txt'
-	img_size = [256, 256, 3]
+	img_size = 64
 else: 
 	raise ValueError
 
@@ -68,11 +68,12 @@ mkdir_p(model_dir)
 model = densenet(train_dir=train_dir, val_dir=val_dir, output_dir=output_dir, model_dir=model_dir, 
 	nb_epoch=nb_epoch, batch_size=batch_size, lr=lr, img_size=img_size, colorspace=colorspace) 
 
-model.build_model()
 
 if task == 'train':
+	model.build_model(dropout_p=0.2)
 	model.train()
 elif task == 'test':
+	model.build_model(dropout_p=0.0)
 	model.test()
 else: 
 	raise ValueError

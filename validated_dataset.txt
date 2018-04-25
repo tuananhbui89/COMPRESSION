@@ -1,1 +1,2 @@
 /home/zhou/BTA/dataset/CLIC/val/
+#/hdd/BTA/dataset/ImageNet/Val/val01/

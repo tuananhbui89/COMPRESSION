@@ -1,2 +1,13 @@
 20180423_1214: epoch 0 step 0.1% loss: 5.746423 entropy_loss: 4.728434 recon_loss 1.017989 mse: 1.017989 psnr: -0.077431 max_z: 127.0 min_z: -105.0
 20180423_1309: epoch 0 step 50.0% loss: 4.588617 entropy_loss: 4.513570 recon_loss 0.075047 mse: 0.075047 psnr: 11.246653 max_z: 127.0 min_z: -78.0
+20180423_1441: epoch 0 step 100.0% loss: 4.531375 entropy_loss: 4.491474 recon_loss 0.039901 mse: 0.039901 psnr: 13.990120 max_z: 127.0 min_z: -67.0
+20180423_1441: epoch 1 step 0.1% loss: 4.553157 entropy_loss: 4.500084 recon_loss 0.053072 mse: 0.053072 psnr: 12.751305 max_z: 127.0 min_z: -64.0
+20180423_1606: epoch 1 step 50.0% loss: 4.572875 entropy_loss: 4.503867 recon_loss 0.069008 mse: 0.069008 psnr: 11.610982 max_z: 127.0 min_z: -73.0
+20180423_1645: epoch 1 step 100.0% loss: 4.518721 entropy_loss: 4.497881 recon_loss 0.020840 mse: 0.020840 psnr: 16.811042 max_z: 127.0 min_z: -81.0
+20180423_1645: epoch 2 step 0.1% loss: 4.529214 entropy_loss: 4.512025 recon_loss 0.017189 mse: 0.017189 psnr: 17.647427 max_z: 126.0 min_z: -77.0
+20180423_1714: epoch 2 step 50.0% loss: 4.516640 entropy_loss: 4.494634 recon_loss 0.022006 mse: 0.022006 psnr: 16.574611 max_z: 127.0 min_z: -77.0
+20180423_1745: epoch 2 step 100.0% loss: 4.539306 entropy_loss: 4.522272 recon_loss 0.017034 mse: 0.017034 psnr: 17.686867 max_z: 127.0 min_z: -89.0
+20180423_1745: epoch 3 step 0.0% loss: 4.505270 entropy_loss: 4.492461 recon_loss 0.012809 mse: 0.012809 psnr: 18.924838 max_z: 127.0 min_z: -67.0
+20180423_1814: epoch 3 step 50.0% loss: 4.545796 entropy_loss: 4.529107 recon_loss 0.016689 mse: 0.016689 psnr: 17.775630 max_z: 127.0 min_z: -72.0
+20180423_1835: epoch 4 step 0.0% loss: 4.512012 entropy_loss: 4.488029 recon_loss 0.023983 mse: 0.023983 psnr: 16.201006 max_z: 127.0 min_z: -64.0
+20180423_1851: epoch 4 step 50.0% loss: 4.509001 entropy_loss: 4.492953 recon_loss 0.016048 mse: 0.016048 psnr: 17.945876 max_z: 127.0 min_z: -57.0
